@@ -6,16 +6,44 @@
   <link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/dahal/dahal.github.io/source/source/stylesheets/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/dahal/dahal.github.io/source/source/stylesheets/all.css">
   <link rel="stylesheet" type="text/css" href="stylesheets/tiles.css">
+  <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
   <title>Tiles</title>
 </head>
 <body>
   <div class="container">
-    <div class="tiles-title">
-      <h2>Tiles <br/>
-        <small>Instagram Pictures with #HashTag</small>
-      </h2>
+    <div class="row">
+      <div class="tiles-title">
+        <h2>Tiles <br/>
+          <small>Instagram Pictures with #HashTag</small>
+        </h2>
+      </div>
+    </div>
+
+    <!-- Form -->
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <form class="form-inline" role="form">
+          <div class="col-md-9">
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-addon"><i class="fa fa-instagram fa-2x"> </i></div>
+                <input class="form-control input-lg" id="long_url" placeholder="#InstaFamous">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <button type="submit" class="btn btn-lg btn-default">Submit</button>
+          </div>
+        </form>
+      </div>
     </div>
     <hr>
+
+    <div class="row tiles">
+      <!-- Pictures Goes here -->
+    </div>
+
   </div>
 </body>
 </html>
