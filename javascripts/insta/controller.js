@@ -16,7 +16,7 @@ Insta.Tiles.Controller = function(model, view){
         var gravatar = insta.user.profile_picture
         var image = insta.images.standard_resolution.url
         this.view.instaTiles(user, gravatar, image)
-      })
-    })
+      }.bind(this))
+    }.bind(this))
   }
 }
