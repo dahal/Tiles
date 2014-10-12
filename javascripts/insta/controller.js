@@ -4,18 +4,37 @@ Insta.Tiles.Controller = function(model, view){
 
   this.initialize = function(){
     console.log('Initializing Controller')
-    this.loadDefault()
+    this.loadInstaImages()
+    this.bindListener()
   }
 
-  this.loadDefault = function(){
-    this.model.fetchInstagram("instafamous")
-    console.log('Loading Default...')
+  this.bindListener = function(){
+    $('form').on('submit', function(e){
+      e.preventDefault()
+      this.validateHashTag()
+      this.view.clearDOM()
+    }.bind(this))
+  }
+
+  this.validateHashTag = function(){
+     var hashRegex = /^#/
+     var hashtag = this.view.formHashTag()
+     if (hashRegex.test(hashtag)) {
+       console.log('Starts with #')
+     } else {
+       console.log('Does not Starts with #')
+       this.loadInstaImages(hashtag)
+     }
+   }
+
+  this.loadInstaImages = function(hashtag){
+    if (typeof hashtag === 'undefined'){
+      hashtag = "goldengate"
+    }
+    this.model.fetchInstagram(hashtag)
     $('.tiles').on('didLoadInstagram', function(event, response) {
       response.data.forEach(function(insta){
-        var user = insta.user.username
-        var gravatar = insta.user.profile_picture
-        var image = insta.images.standard_resolution.url
-        this.view.instaTiles(user, gravatar, image)
+        this.view.instaTiles(insta)
       }.bind(this))
     }.bind(this))
   }

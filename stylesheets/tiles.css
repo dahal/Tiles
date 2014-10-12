@@ -1,4 +1,13 @@
 .tiles-title{
   text-align: center;
-  padding: 100px;
+  padding: 70px;
+}
+
+.gravatar{
+  height: 25px;
+  width: 25px;
+}
+
+.likes{
+  padding: 5px;
 }

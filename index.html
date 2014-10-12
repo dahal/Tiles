@@ -3,6 +3,8 @@
   <meta charset="utf-8" />
   <meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1' />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Stylesheets -->
   <link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/dahal/dahal.github.io/source/source/stylesheets/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/dahal/dahal.github.io/source/source/stylesheets/all.css">
   <link rel="stylesheet" type="text/css" href="stylesheets/tiles.css">
@@ -11,11 +13,13 @@
   <!-- javascripts -->
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-instagram/0.3.1/instagram.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
   <script type="text/javascript" src="javascripts/namespace.js"></script>
   <script type="text/javascript" src="javascripts/initialize.js"></script>
   <script type="text/javascript" src="javascripts/insta/model.js"></script>
   <script type="text/javascript" src="javascripts/insta/controller.js"></script>
   <script type="text/javascript" src="javascripts/insta/views.js"></script>
+
   <title>Tiles</title>
 </head>
 <body>
@@ -36,7 +40,7 @@
             <div class="form-group">
               <div class="input-group">
                 <div class="input-group-addon"><i class="fa fa-instagram fa-2x"> </i></div>
-                <input class="form-control input-lg" id="long_url" placeholder="#InstaFamous">
+                <input class="form-control input-lg" id="hashtag" placeholder="#goldengate">
               </div>
             </div>
           </div>
@@ -48,55 +52,23 @@
       </div>
     </div>
     <hr>
-
+    <!-- Image Template -->
     <div class="row tiles">
-      <!-- Load Images -->
-      <div class="col-md-3">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <a href="#"><img class="img-rounded img-responsive" src="http://placehold.it/400x500"></a>
-            <br>
-            <a href="http://instagram.com/_dahal_" class="pull-left" target="_blank"><img class="img-circle img-responsive" src="http://placehold.it/20x20"></a>
-            <a href="http://instagram.com/_dahal_" class="pull-right" target="_blank"> @_dahal_ </a>
+      <script type="text/x-handlebars-template" id="insta-image">
+        <div class="hash">
+          <div class="col-md-3">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <a href="{{instaLink}}" target="_blank"><img class="img-rounded img-responsive" src="{{instaImage}}"></a><br>
+                <a href="http://instagram.com/{{instaUser}}" class="pull-left" target="_blank"><img class="img-circle img-responsive gravatar" src="{{instaGravatar}}"></a>
+                <i class="fa fa-heart likes"> {{instaLikes}}</i><i></i>
+                <a href="http://instagram.com/{{instaUser}}" class="pull-right" target="_blank"> @{{instaUser}}</a>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <a href="#"><img class="img-rounded img-responsive" src="http://placehold.it/400x500"></a>
-            <br>
-            <a href="http://instagram.com/_dahal_" class="pull-left" target="_blank"><img class="img-circle img-responsive" src="http://placehold.it/20x20"></a>
-            <a href="http://instagram.com/_dahal_" class="pull-right" target="_blank"> @_dahal_ </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <a href="#"><img class="img-rounded img-responsive" src="http://placehold.it/400x500"></a>
-            <br>
-            <a href="http://instagram.com/_dahal_" class="pull-left" target="_blank"><img class="img-circle img-responsive" src="http://placehold.it/20x20"></a>
-            <a href="http://instagram.com/_dahal_" class="pull-right" target="_blank"> @_dahal_ </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <a href="#"><img class="img-rounded img-responsive" src="http://placehold.it/400x500"></a>
-            <br>
-            <a href="http://instagram.com/_dahal_" class="pull-left" target="_blank"><img class="img-circle img-responsive" src="http://placehold.it/20x20"></a>
-            <a href="http://instagram.com/_dahal_" class="pull-right" target="_blank"> @_dahal_ </a>
-          </div>
-        </div>
-      </div>
-      <!-- Load Images -->
+      </script>
     </div>
-
   </div>
 </body>
 </html>
