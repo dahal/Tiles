@@ -21,6 +21,10 @@ Insta.Tiles.Controller = function(model, view){
      var hashtag = this.view.formHashTag()
      if (hashRegex.test(hashtag)) {
        console.log('Starts with #')
+       hashtag = hashtag.split('')
+       hashtag.splice(0,1)
+       hashtag = hashtag.join('')
+       this.loadInstaImages(hashtag)
      } else {
        console.log('Does not Starts with #')
        this.loadInstaImages(hashtag)
