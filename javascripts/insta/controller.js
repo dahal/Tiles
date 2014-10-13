@@ -4,15 +4,15 @@ Insta.Tiles.Controller = function(model, view){
 
   this.initialize = function(){
     console.log('Initializing Controller')
-    this.loadInstaImages()
     this.bindListener()
+    this.loadInstaImages()
   }
 
   this.bindListener = function(){
     $('form').on('submit', function(e){
       e.preventDefault()
-      this.validateHashTag()
       this.view.clearDOM()
+      this.validateHashTag()
     }.bind(this))
   }
 
